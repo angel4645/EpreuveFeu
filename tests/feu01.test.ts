@@ -1,4 +1,4 @@
-import { DessinerRectangle } from "../feu01";
+import { DessinerRectangle } from "../util/epreuve01/dessinerRectangle";
 describe("Echauffement", () => {
   test("doit generer un rectangle de 5 par 3", () => {
     const largeur = 5;
