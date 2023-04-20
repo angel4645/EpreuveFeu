@@ -21,26 +21,6 @@ export class Case {
     }
     this.valeur = undefined;
   }
-  ajouterValeurPossible(valeurPossible: string) {
-    if (this.lectureSeul) {
-      throw new Error("La case est en lecture seule !");
-    }
-    if (this.valeursDisponible.find((x) => x === valeurPossible)) {
-      return;
-    }
-    this.valeursDisponible.push(valeurPossible);
-  }
-
-  ajouterListeValeurPossible(listeValeurPossible: string[]) {
-    if (this.lectureSeul) {
-      throw new Error("La case est en lecture seule !");
-    }
-    if (this.valeursDisponible.length === 0) {
-      this.valeursDisponible = [...listeValeurPossible];
-      return;
-    }
-    this.valeursDisponible = this.valeursDisponible.filter((x) => listeValeurPossible.includes(x));
-  }
 
   ajouterGroupe(g: Groupe) {
     this.listeGroupe.push(g);
@@ -58,19 +38,6 @@ export class Case {
     });
   }
 
-  isGroupeValideInstantT() {
-    for (const g of this.listeGroupe) {
-      const val = g.validePartiellement();
-      if (!val) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  getNombreValeurPossible() {
-    return this.valeursDisponible.length;
-  }
   getValeur() {
     return this.valeur;
   }
@@ -80,7 +47,7 @@ export class Case {
       throw new Error("La case est en lecture seule !");
     }
     if (this.valeursDisponible.length === 0) {
-      throw new Error("Aucune valeur possible n’a été initialisé !");
+      return undefined;
     }
     if (this.valeur === undefined) {
       return this.valeursDisponible[0];

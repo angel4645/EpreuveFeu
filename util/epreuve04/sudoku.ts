@@ -25,7 +25,6 @@ export class Sudoku {
 
   public resoudre() {
     this.creationGroupe();
-    this.determinerPossibiliteCase();
     const listeCaseADeterminer = this.listeCase.filter((x) => !x.lectureSeul);
     const resultat = this.determinerValeurRecursif(listeCaseADeterminer, 0);
     let solution = "";
@@ -49,29 +48,14 @@ export class Sudoku {
     return solution.join("");
   }
 
-  determinerPossibiliteCase() {
-    for (const g of this.mapGroupe.values()) {
-      g.addValeurPossibleCase();
-      g.listeCase.forEach((c) => {
-        if (c.lectureSeul) {
-          return;
-        }
-        c.ajouterGroupe(g);
-      });
-    }
-  }
-
   private creationGroupe() {
     this.mapGroupe = new Map();
     for (let i = 0; i < this.listeCase.length; i++) {
       const c = this.listeCase[i];
-      //horizontal divise part entiere
       const h = Math.trunc(i / 9);
       this.addValeurGroupe(`h${h}`, c);
-      //vertical modulo
       const v = i % 9;
       this.addValeurGroupe(`v${v}`, c);
-      //groupe
       const g = this.determinerIndiceGroupe(h, v);
       this.addValeurGroupe(`g${g}`, c);
     }
@@ -121,6 +105,7 @@ export class Sudoku {
     }
     const g = this.mapGroupe.get(keyGroupe);
     g.addCase(c);
+    c.ajouterGroupe(g);
   }
 
   private determinerValeurRecursif(listeCaseACalculer: Case[], indexCourant: number) {
