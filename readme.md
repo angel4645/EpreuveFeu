@@ -14,4 +14,5 @@ Les exercices peuvent être exécuté via la commande npm suivante: npm start «
 exemple:
 -  npm start feu01.ts 5 3
 -  npm start feu02.ts "  4+21*(1-2/2)+38 "
--  npm start feu03.ts 03-board.txt 03-unfidable.txt 
+-  npm start feu03.ts 03-board.txt 03-unfidable.txt
+-  npm start feu04.ts 04-s.txt
