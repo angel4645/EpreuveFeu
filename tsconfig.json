@@ -4,7 +4,9 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "outDir": "dist",
-    "target": "es2017"
+    "target": "es2017",
+    "downlevelIteration": true,
+    "sourceMap": true
   },
   "ts-node": {
     "esm": true,
