@@ -16,3 +16,5 @@ exemple:
 -  npm start feu02.ts "  4+21*(1-2/2)+38 "
 -  npm start feu03.ts 03-board.txt 03-unfidable.txt
 -  npm start feu04.ts 04-s.txt
+-  npm start feu05.ts 05-plateau.txt
+-  npm start feu06.ts 06-labyrinthe.txt
