@@ -18,3 +18,4 @@ exemple:
 -  npm start feu04.ts 04-s.txt
 -  npm start feu05.ts 05-plateau.txt
 -  npm start feu06.ts 06-labyrinthe.txt
+-  npm start feu07.ts
